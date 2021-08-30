@@ -9,7 +9,6 @@ boxesWrapper.style.display = 'flex';
 boxesWrapper.style.flexWrap = 'wrap';
 boxesWrapper.style.alignItems = 'center';
 
-
 function createBoxes() {
   let amount =  Number(controls.inputNumber.value);
   let arrOfDiv = [];
@@ -31,12 +30,12 @@ function destroyBoxes() {
   boxesWrapper.innerHTML = '';
 }
 
-function randomColorRGB () {
-  const randomRedComponent = Math.floor(Math.random() * (256 - 0)) + 0;
-  const randomGreenComponent = Math.floor(Math.random() * (256 - 0)) + 0;
-  const randomBlueComponent = Math.floor(Math.random() * (256 - 0)) + 0;
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
 
-  return `rgb(${randomRedComponent}, ${randomGreenComponent}, ${randomBlueComponent})`;
+function randomColorRGB () {
+  return `rgb(${getRandomNumber(0, 256)}, ${getRandomNumber(0, 256)}, ${getRandomNumber(0, 256)})`;
 }
 
 controls.btnRemove.addEventListener('click', destroyBoxes);
